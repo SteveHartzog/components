@@ -1,0 +1,93 @@
+@import '~bourbon/core/bourbon';
+@import 'variables';
+
+$blurred-img:"https://lh3.googleusercontent.com/-m8TxQMObg6c/U474EWu7Y9I/AAAAAAAAI2k/xkRGoIEC1iU/s1600/blur.jpg";
+
+action-bar {
+  .actionBarContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: darken($contentBackground, 5%);
+
+    .left {
+      flex-grow: 1;
+    }
+
+    .right {
+      div {
+        height: 44px;
+        width: 350px;
+        text-align: right;
+        position: absolute;
+        right: 0;
+
+        .blurBackground {
+          filter: opacity(75%) blur(3px);
+          height: 41px;
+          width: 320px;
+          margin: auto;
+          z-index: 2;
+          background-color: darken($contentBackground, 10%);
+        }
+
+        form {
+          position: relative;
+          z-index: 10;
+          height: 100%;
+
+          input {
+            margin: 0;
+            width: 250px;
+            height: 28px;
+            border: 2px solid $brand;
+            border-radius: 20px;
+            padding-left: 8px;
+            background-color: #cccccc;
+            color: black;
+            display: inline-block;
+            font-size: 18px;
+            vertical-align: middle;
+
+            &::-webkit-input-placeholder {
+              color: $brand;
+            }
+            &::placeholder {
+              color: $brand;
+            }
+          }
+
+          i {
+            vertical-align: middle;
+          }
+          input[type=text]:focus:not([readonly]) {
+            border-bottom: 1px solid $brand;
+            box-shadow: 0 1px 0 0 $brand;
+          }
+          input[type=text]:focus:not([readonly]) + label {
+            color: $contentForeground;
+            display: inline-block;
+          }
+
+          a {
+            color: $contentForeground;
+            display: inline-block;
+            height: 100%;
+          }
+          a:hover {
+            background-color: red;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    padding: 14px 14px 10px 14px;
+    color: $contentForeground;
+    display: inline-block;
+  }
+
+  a:hover {
+    background-color: $navHover;
+  }
+}

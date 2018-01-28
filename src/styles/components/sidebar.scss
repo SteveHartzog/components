@@ -1,0 +1,72 @@
+@import 'variables';
+.sideBar {
+  height: calc(100vh - 64px);
+  width: 175px;
+
+  ul.menu {
+    margin: 0;
+    padding: 0;
+
+    a:hover {
+      background-color: $navHover;
+    }
+
+    li.active {
+      background-color: $navSelected;
+      color: $navColor;
+      font-weight: bold;
+    }
+
+    li {
+      div {
+        display: block;
+        height: 100%;
+      }
+
+      a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 15px;
+        display: block;
+        height: 100%;
+        color: $navColor;
+        text-decoration: none;
+      }
+
+      div.subMenuHeader {
+        padding-bottom: 0;
+
+        a {
+          display: flex;
+          flex-direction: row;
+
+          span {
+            flex-grow: 1;
+          }
+
+          i:nth-of-type(1) {
+            margin-top: 1px;
+          }
+
+          i:nth-of-type(2) {
+            padding-right: 7px;
+          }
+        }
+      }
+
+      ul.subMenu {
+        margin: 0;
+        padding-left: 0;
+
+        li a {
+          padding-left: 35px;
+          width: 140px;
+        }
+      }
+    }
+  }
+
+  ul li {
+    display: block;
+  }
+}

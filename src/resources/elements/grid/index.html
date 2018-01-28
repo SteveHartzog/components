@@ -1,0 +1,83 @@
+<template>
+  <table class="${theme} ${showBorder === 'true' ? 'showBorder' : ''}"
+    style.bind="width ? 'width: ' + width : 'width: calc(100vw - 215px)'">
+    <thead class="${showBorder === 'true' ? 'showBorder' : ''}">
+      <tr if.bind="allowPaging === 'false' || allowPaging === 'true' && pageSize && pagedRows.length > 0">
+        <th if.bind="showId === 'true'" style="text-align:center;cursor:default;">ID</th>
+        <th repeat.for="column of columns" class="${enableSorting === 'true' ? 'sortableColumn' : ''}"
+          style="${column.width ? 'width: ' + column.width : ''} ${column.align ? ' text-align: ' + column.align : 'text-align: left'}">
+          <a if.bind="enableSorting === 'true'" href="#" click.trigger="columnClick(column.dataField)">
+            ${column.title}
+            <i if.bind="currentSortColumn !== '-1' && currentSortColumn === column.dataField" class="fa ${currentSortDirection === 'asc' ? 'fa-sort-asc' : 'fa-sort-desc'}" aria-hidden="true"></i>
+          </a>
+          <span if.bind="enableSorting !== 'true'">${column.title}</span>
+        </th>
+        <th if.bind="allowEdit === 'true'"></th>
+      </tr>
+      <tr if.bind="rows.length === 0">
+        <th colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="row of (allowPaging === 'true' ? pagedRows : rows)" class="${showGrid === 'true' ? 'showGridLines' : ''}">
+        <td if.bind="showId === 'true'" class="${showGrid === 'true' ? 'showGridLines' : ''}" style="text-align:center;">${row['id'] | numberFormat:'0' }</td>
+        <td class="${showGrid === 'true' ? 'showGridLines' : ''}" repeat.for="column of columns"
+          style.bind="column.align ? 'text-align: ' + column.align : 'text-align: left'">
+          <span if.bind="column.dataType === 'date'">${row[column.dataField] | dateFormat:'YYYY-MM-DD'}</span>
+          <span if.bind="column.dataType === 'number'">${row[column.dataField] | numberFormat }</span>
+          <span if.bind="column.dataType === 'currency'">${row[column.dataField] | currencyFormat }</span>
+          <span if.bind="column.dataType === 'string'">${row[column.dataField]}</span>
+          <span if.bind="column.dataType !== 'date' && column.dataType !== 'string' && column.dataType !== 'number' && column.dataType !== 'currency'">${row[column.dataField]}</span>
+        </td>
+        <td if.bind="allowEdit === 'true'" class="editCommands">
+          <a href="#" title="Edit" click.trigger="clickEdit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        </td>          
+      </tr>
+      <tr if.bind="allowPaging === 'true' && pageSize && pagedRows.length > 0 && pagedRows.length+1 < pageSize"
+        class="${showGrid === 'true' ? 'showGridLines' : ''}"
+        repeat.for="i of (pageSize - pagedRows.length)">
+        <td colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}">&nbsp;</td>
+      </tr>
+      <tr class="empty" if.bind="allowPaging === 'true' && pageSize && pagedRows.length === 0" repeat.for="i of 2">
+        <td colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}"></td>
+      </tr>
+      <tr class="empty" if.bind="allowPaging === 'true' && pageSize && pagedRows.length === 0">
+        <td colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}">No results found.</td>
+      </tr>
+      <tr class="empty" if.bind="allowPaging === 'true' && pageSize && pagedRows.length === 0" repeat.for="i of (pageSize-3)">
+        <td colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}">&nbsp;</td>
+      </tr>
+    </tbody>
+    <tfoot class="${showBorder === 'true' ? 'showBorder' : ''}">
+      <tr>
+        <td colspan="${columns.length + (allowEdit === 'true' ? 1 : 0) + (showId === 'true' ? 1 : 0)}">
+          <span class="recordCount">
+            <span if.bind="currentFilter.length > 0">${rows.length} of ${originalRows.length} 
+              <a href="#" title="Clear Filter" click.trigger="requestFilter()">
+                <i class="material-icons tiny">clear</i>
+              </a>
+              </span>
+             <span if.bind="!currentFilter || currentFilter.length === 0">${originalRows.length}</span> 
+          </span>
+
+          <span class="footerFilter" if.bind="currentFilter.length > 0">
+            <i class="child material-icons tiny">find_in_page</i>
+            <span class="child currentFilter">${currentFilter}</span>
+          </span>
+
+          <span class="footerPager" if.bind="maxPages > 1">
+            <a href="#" title="Previous Page" click.trigger="pageClick('previous')"
+              class="${currentPage === 1 ? 'disabled' : ''}">
+              <i class="material-icons tiny">navigate_before</i>
+            </a>
+            <span class="pageNumber">${currentPage} of ${maxPages}</span>
+            <a href="#" title="Next Page" click.trigger="pageClick('next')"
+              class="${currentPage === maxPages ? 'disabled' : ''}">
+              <i class="material-icons tiny">navigate_next</i>
+            </a></span>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <slot></slot>
+</template>

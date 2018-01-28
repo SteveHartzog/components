@@ -1,0 +1,91 @@
+@import '~include-media/dist/include-media';
+
+$breakpoints: (mobile: 440px, tablet: 768px, desktop: 1024px);
+
+$brand: #2c5ab6;
+
+$navColor: #cccccc;
+$navColorActive: #ffffff;
+$navBackground: #1e428c;
+
+$navHover: $brand; // #b0c4de;
+$navHoverText: #000000;
+$navSelected: rgba(#b0c4de, 0.25);
+$navShadow: #91b3f8;
+
+$contentBackground: #2c3137;
+$contentForeground: #ffffff;
+
+// Grid Theme: Default
+$gridDefault-borderColor: lighten(#000000, 10%);
+$gridDefault-gridLineColor: darken(#ffffff, 75%);
+
+$gridDefault-headerColor: #ffffff;
+$gridDefault-headerBackgroundColor: $gridDefault-borderColor;
+$gridDefault-headerIconColor: $brand;
+
+$gridDefault-bodyColor: #ffffff;
+$gridDefault-bodyBackgroundColor: #000000;
+$gridDefault-hoverRowColor: $navSelected;
+$gridDefault-bodyIconColor: #cccccc;
+$gridDefault-bodyIconHoverColor: #ffffff;
+$gridDefault-bodyIconHoverColorBackground: $brand;
+
+$gridDefault-footerColor: #ffffff;
+$gridDefault-footerBackgroundColor: lighten(#000000, 15%);
+$gridDefault-footerIconColor: #cccccc;
+$gridDefault-footerIconHoverColor: #cccccc;
+$gridDefault-footerIconHoverColorBackground: $brand;
+$gridDefault-footerIconDisabledColor: #666666;
+$gridDefault-footerIconDisabledShadow: 1px 1px 1px #555, 0 0 0 #000;
+
+// Grid Theme: Alt
+$gridAlt-borderColor: #aaaaaa;
+$gridAlt-gridLineColor: darken(#ffffff, 75%);
+
+$gridAlt-headerColor: #000000;
+$gridAlt-headerBackgroundColor: $gridAlt-borderColor;
+$gridAlt-headerIconColor: darken($brand, 25%);
+
+$gridAlt-bodyColor: #000000;
+$gridAlt-bodyBackgroundColor: #cccccc;
+$gridAlt-hoverRowColor: lighten($brand, 50%);
+$gridAlt-bodyIconColor: #000000;
+$gridAlt-bodyIconHoverColor: #ffffff;
+$gridAlt-bodyIconHoverColorBackground: $brand;
+
+$gridAlt-footerColor: #000000;
+$gridAlt-footerBackgroundColor: lighten(#aaaaaa, 25%);
+$gridAlt-footerIconColor: #000000;
+$gridAlt-footerIconHoverColor: #ffffff;
+$gridAlt-footerIconHoverColorBackground: $brand;
+$gridAlt-footerIconDisabledColor: #aaaaaa;
+$gridAlt-footerIconDisabledShadow: 1px 1px 1px #999999, 0 0 0 #000;
+
+// Grid Theme: Blue
+$gridBlue-borderColor: #2c5ab6;
+$gridBlue-gridLineColor: darken(#ffffff, 75%);
+
+$gridBlue-headerColor: #dddddd;
+$gridBlue-headerBackgroundColor: $gridBlue-borderColor;
+$gridBlue-headerIconColor: #dddddd;
+
+$gridBlue-bodyColor: #000000;
+$gridBlue-bodyBackgroundColor: #cccccc;
+$gridBlue-hoverRowColor: lighten(#2c5ab6, 25%);
+$gridBlue-bodyIconColor: #000000;
+$gridBlue-bodyIconHoverColor: #ffffff;
+$gridBlue-bodyIconHoverColorBackground: green;
+
+$gridBlue-footerColor: #000000;
+$gridBlue-footerBackgroundColor: lighten(#aaaaaa, 25%);
+$gridBlue-footerIconColor: #000000;
+$gridBlue-footerIconHoverColor: #ffffff;
+$gridBlue-footerIconHoverColorBackground: green;
+$gridBlue-footerIconDisabledColor: #aaaaaa;
+$gridBlue-footerIconDisabledShadow: 1px 1px 1px #999999, 0 0 0 #000;
+
+$gradient1: lighten($brand, 21%);
+$gradient2: lighten($brand, 16%);
+$gradient3: lighten($brand, 12%);
+$gradient4: $brand;

@@ -1,0 +1,22 @@
+<template class="sideBar" style="background-color: ${background}; color: ${foreground};">
+  <ul class="menu">
+    <li repeat.for="menuItem of router.navigation | subMenu" class="${menuItem.isActive ? 'active' : ''}">
+      <div class="${menuItem.children.length === 0 ? '' : 'subMenuHeader'}">
+        <a href="${menuItem.children.length === 0 ? menuItem.href: 'javascript:void(0);'}" click.trigger="toggleNode($index)">
+          <i class="fa ${menuItem.settings.icon}" if.bind="menuItem.children.length > 0" aria-hidden="true">&nbsp; </i><span>${menuItem.title.toUpperCase()}</span>
+          <i class="fa ${$parent.visibilityArray[$index] ? 'fa-caret-down' : 'fa-caret-right'}" aria-hidden="true" if.bind="menuItem.children.length > 0"></i>
+        </a>
+
+        <ul if.bind="menuItem.children.length > 0" class="subMenu" show.bind="$parent.visibilityArray[$index]">
+          <li repeat.for="subMenuItem of menuItem.children" class="${subMenuItem.isActive ? 'active' : ''}">
+            <div><span if.bind="isActive(subMenuItem.isActive, $parent.$index)" style="display: none;"></span>
+              <a href.bind="subMenuItem.href">
+                <i class="material-icons tiny">${subMenuItem.settings.icon}</i> ${subMenuItem.title}
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</template>

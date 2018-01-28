@@ -1,0 +1,146 @@
+@import 'variables';
+@import '~bourbon/core/bourbon';
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4 {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.splash {
+  text-align: center;
+  margin: 10% 0 0 0;
+  box-sizing: border-box;
+
+  .message {
+    font-size: 72px;
+    line-height: 72px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .fa-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 72px;
+    margin-top: 50px;
+  }
+}
+
+.flexRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  // width: 100vw;
+}
+
+@mixin flexRow($layout: row, $justify: flex-start) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: $justify;
+  flex-flow: $layout wrap;
+}
+
+main {
+  display: flex;
+  // height: calc(100vh - 65px);
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-flow: row nowrap;
+  position: absolute;
+}
+
+.content {
+  background-color: $contentBackground;
+  color: $contentForeground;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw;
+
+  article {
+    padding: 0 20px;
+    height: calc(100vh - 64px);
+    width: calc(100vw - 215px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  action-bar + section.content-well {
+    height: calc(100vh - 109px);
+  }
+
+  // section.content-well-with-actionbar {
+  //   padding: 0 20px;
+  //   height: calc(100vh - 109px);
+  //   width: calc(100vw - 175px);
+  //   overflow-y: auto;
+  //   overflow-x: hidden;
+  // }
+}
+
+.leader {
+  float: left;
+}
+
+.footer {
+  height: 50px;
+  padding-left: 1%;
+  position: absolute;
+  bottom: 1px;
+  width: calc(100vw - 150px);
+
+  // @include background(linear-gradient(top, whitesmoke 0%, lighten(maroon, 80%) 100%));
+  background: linear-gradient(to top, whitesmoke 0%, lighten(maroon, 80%) 100%);
+
+  /* W3C */
+  color: white;
+  text-shadow: 1px 1px 0 #f5f5f5;
+
+  div {
+    font-size: 0.7em;
+    display: inline-block;
+    width: 30%;
+    vertical-align: middle;
+  }
+  div:nth-child(2) {
+    font-size: 1.2em;
+    text-align: center;
+    font-style: italic;
+    width: 38%;
+  }
+  div:nth-last-of-type(1) {
+    text-align: right;
+    width: 30%;
+  }
+  .footerTable {
+    padding: 0 15px;
+    width: 100%;
+  }
+}
+
+@media print {
+  .page-host {
+    position: absolute;
+    left: 10px;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    overflow-y: inherit;
+    overflow-x: inherit;
+  }
+}

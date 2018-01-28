@@ -1,0 +1,36 @@
+<template bindable="router">
+  <div ref="fixedAnchor">
+    <nav class="primary" ref="nav">
+      <div class="nav-wrapper">
+        <ul class="left">
+          <li>
+            <a href="/">
+              <i class="fa fa-coffee" aria-hidden="true">&nbsp; </i>${router.title}
+            </a>
+          </li>
+          <li>
+            <span style="border-right: 1px solid white;height:60px;"></span>
+          </li>
+          <li repeat.for="row of router.navigation">
+            <a href.bind="row.href" if.bind="row.isActive">
+              <span if.bind="row.settings.parentMenu">${row.settings.parentMenu}: </span>${row.title}</a>
+          </li>
+        </ul>
+    
+        <!-- <ul class="right">
+          <li>
+            <a href="https://login.microsoftonline.com/">Login</a>
+          </li>
+        </ul> -->
+
+        <!-- <md-sidenav view-model.ref="sideNav" md-close-on-click="true" md-edge="left">
+        <ul>
+          <li md-waves repeat.for="row of router.navigation " class="${row.isActive ? 'active' : ''} ">
+            <a href.bind="row.href ">${row.title}</a>
+          </li>
+        </ul>
+        </md-sidenav> -->
+      </div>
+    </nav>
+  </div>
+</template>  

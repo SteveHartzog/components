@@ -1,0 +1,11 @@
+.DS_STORE
+Thumbs.db
+.idea
+.vscode
+node_modules
+dist
+
+## Team Essentials ##
+#####################
+.vscode/settings.json
+.vscode/team-essentials/state.json

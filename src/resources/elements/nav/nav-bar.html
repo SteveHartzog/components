@@ -1,0 +1,39 @@
+<template bindable="router">
+    <div ref="fixedAnchor">
+      <nav class="primary" ref="nav">
+        <div class="nav-wrapper">
+          <!-- <md-navbar fixed="true"> -->
+            <!--<a md-sidenav-collapse="ref.bind: sideNav;" class="left"><i class="material-icons">menu</i></a>-->
+        
+            <ul class="left">
+              <li><!-- md-waves -->
+                <a href="#">
+                  <!-- <img class="logo " src="" /> -->${router.title}
+                </a>
+              </li>
+              <li>
+                <span style="border-right: 1px solid white;height:60px;"></span>
+              </li>
+              <li repeat.for="row of router.navigation "><!-- md-waves="color: light;" -->
+                <a href="# " if.bind="row.isActive">
+                  <span if.bind="row.settings.parentMenu">${row.settings.parentMenu}: </span>${row.title}</a>
+              </li>
+            </ul>
+        
+            <ul class="right">
+              <li><!-- md-waves="color: light;" -->
+                <a href="https://login.microsoftonline.com/">Login</a>
+              </li>
+            </ul>
+          <!-- </md-navbar> -->
+          <!-- <md-sidenav view-model.ref="sideNav" md-close-on-click="true" md-edge="left">
+            <ul>
+              <li md-waves repeat.for="row of router.navigation " class="${row.isActive ? 'active' : ''} ">
+                <a href.bind="row.href ">${row.title}</a>
+              </li>
+            </ul>
+          </md-sidenav> -->
+        </div>
+      </nav>
+    </div>
+  </template>  

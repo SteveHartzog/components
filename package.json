@@ -1,0 +1,113 @@
+{
+  "name": "components",
+  "description": "A container and showcase for my components.",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SteveHartzog/components.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "aurelia-animator-css": "^1.0.4",
+    "aurelia-bootstrapper": "^2.1.1",
+    "aurelia-dialog": "^1.0.0-rc.2.0.0",
+    "aurelia-polyfills": "latest",
+    "bluebird": "^3.5.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "numeral": "^2.0.6"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@types/jest": "22.0.1",
+    "@types/lodash": "^4.14.92",
+    "@types/node": "^9.3.0",
+    "@types/webpack": "^3.8.2",
+    "aurelia-cli": "^0.32.0",
+    "aurelia-loader-nodejs": "^1.0.1",
+    "aurelia-pal-nodejs": "1.0.0-beta.2.0.0",
+    "aurelia-testing": "^1.0.0-beta.4.0.0",
+    "aurelia-tools": "^2.0.0",
+    "aurelia-webpack-plugin": "^2.0.0-rc.5",
+    "awesome-typescript-loader": "^3.4.1",
+    "bourbon": "^5.0.0",
+    "copy-webpack-plugin": "4.3.1",
+    "css-loader": "0.28.8",
+    "del": "^3.0.0",
+    "expose-loader": "0.7.4",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.8",
+    "html-loader": "0.5.4",
+    "html-webpack-plugin": "2.30.1",
+    "include-media": "^1.4.9",
+    "istanbul-instrumenter-loader": "^3.0.0",
+    "jest": "22.1.1",
+    "jest-cli": "22.1.1",
+    "json-loader": "0.5.7",
+    "minimatch": "^3.0.4",
+    "node-sass": "4.7.2",
+    "nps": "^5.7.1",
+    "nps-utils": "1.5.0",
+    "opn": "^5.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "0.19.1",
+    "stylelint": "^8.4.0",
+    "through2": "^2.0.3",
+    "ts-jest": "22.0.1",
+    "ts-node": "^4.1.0",
+    "typescript": ">=2.6.2",
+    "uglify-js": "^3.3.7",
+    "url-loader": "0.6.2",
+    "vinyl-fs": "^3.0.1",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.0"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "\\.spec\\.(ts|js)x?$",
+    "setupFiles": [
+      "<rootDir>/test/jest-pretest.ts"
+    ],
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "aurelia-(.*)": "<rootDir>/node_modules/$1"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts}",
+      "!**/*.spec.{js,ts}",
+      "!**/node_modules/**",
+      "!**/test/**"
+    ],
+    "coverageDirectory": "<rootDir>/test/coverage-jest",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ],
+    "mapCoverage": true
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "scripts": {
+    "start": "nps",
+    "test": "nps test"
+  },
+  "main": "dist/app.bundle.js"
+}

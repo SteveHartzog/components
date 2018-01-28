@@ -1,0 +1,9 @@
+<template>
+  <require from="styles/site.scss"></require>
+  <header router.bind="router"></header>
+  
+  <main>
+    <sidebar router.bind="router"></sidebar>
+		<router-view class="content"></router-view>
+  </main>
+</template>

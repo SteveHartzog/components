@@ -1,0 +1,54 @@
+features {
+  @include flexRow;
+}
+
+feature {
+  margin-top: 5px;
+  margin-right: 5px;
+  padding: 2px;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  a {
+    text-decoration: none;
+  }
+
+  .feature-background {
+    @include flexRow($layout: column, $justify: space-evenly);
+
+    background: black;
+    height: 100%;
+  }
+
+  .feature-icon {
+    text-align: center;
+    width: 100%;
+    color: gray;
+
+    i {
+      font-size: 3rem;
+    }
+  }
+
+  .feature-title {
+    height: 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    color: grey;
+  }
+}
+
+feature:hover {
+  background: -webkit-linear-gradient(top, #6eaeec 0%, #6eaeec 50%, #1e3b4d 51%, #64a0dc 100%);
+  box-shadow: 0 0 10px #6eaeec;
+
+  .feature-icon {
+    color: white;
+  }
+
+  .feature-title {
+    color: white;
+  }
+}

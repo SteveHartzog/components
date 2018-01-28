@@ -1,0 +1,426 @@
+@import '~bourbon/core/bourbon';
+@import 'variables';
+
+grid {
+  a {
+    text-decoration: none;
+  }
+
+  table.showBorder {
+    border: 4px solid;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    // Fix border-radius in chrome
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  }
+  table:not(.showBorder) {
+    border: 0;
+  }
+
+  // grid {
+  table {
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    td {
+      border-radius: 0;
+    }
+
+    thead:not(.showBorder) {
+      border-bottom: 0;
+    }
+
+    thead {
+      border-radius: 20px;
+      overflow: hidden;
+
+      th {
+        padding: 10px 0;
+        text-align: left;
+
+        span {
+          cursor: default;
+        }
+
+        a {
+          display: block;
+          padding: 10px 15px;
+          i {
+            position: relative;
+          }
+
+          i.fa-sort-asc {
+            top: 5px;
+          }
+
+          i.fa-sort-desc {
+            top: -3px;
+          }
+        }
+      }
+
+      th.sortableColumn {
+        padding: 0 !important;
+      }
+    }
+
+    tbody {
+      tr {
+        height: 39px;
+
+        &.empty {
+          td {
+            text-align: center;
+          }
+        }
+
+        &:not(.empty):hover {
+          cursor: default;
+        }
+
+        td {
+          padding: 8px 15px;
+
+          &.editCommands {
+            // text-align: right;
+            padding: 0;
+            // display: table-cell;
+            // line-height: 28px;
+            width: 45px;
+
+            a {
+              width: 50px;
+              line-height: 38px;
+              display: table-cell;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    tfoot {
+      td {
+        padding: 0;
+        height: 34px;
+        line-height: 34px;
+
+        span.recordCount {
+          padding-left: 15px;
+
+          a {
+            width: 45px;
+            line-height: 34px;
+            display: inline-block;
+            text-align: center;
+
+            i.material-icons.tiny {
+              font-size: 1.25rem;
+              vertical-align: middle;
+            }
+          }
+        }
+
+        span.footerFilter {
+          float: right;
+          position: relative;
+          left: -50%; /* or right 50% */
+          text-align: left;
+
+          .child {
+            cursor: default;
+            position: relative;
+            left: 50%;
+            margin-top: 3px;
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 19px;
+          }
+
+          i.material-icons.tiny {
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin-top: -2px;
+          }
+        }
+
+        span.footerPager {
+          cursor: default;
+          position: absolute;
+          right: 24px;
+
+          .pageNumber {
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+
+          a {
+            width: 45px;
+            line-height: 34px;
+            display: inline-block;
+            text-align: center;
+
+            i.material-icons.tiny {
+              font-size: 1.25rem;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  table.default {
+    &.showBorder {
+      border-color: $gridDefault-borderColor;
+    }
+
+    thead {
+      background-color: $gridDefault-headerBackgroundColor;
+
+      &.showBorder {
+        border-bottom: 1px solid $gridDefault-borderColor;
+        // border-top: 2px solid $gridDefault-borderColor;
+        // border-top-left-radius: 15px;
+        // border-top-right-radius: 15px;
+        // z-index: 0;
+        // transform: translateY(0);
+        // overflow: hidden;
+      }
+
+      th {
+        color: $gridDefault-headerColor;
+
+        a {
+          color: $gridDefault-headerColor;
+          i {
+            color: lighten($gridDefault-headerIconColor, 10%);
+          }
+        }
+      }
+    }
+
+    tbody {
+      color: $gridDefault-bodyColor;
+      background-color: $gridDefault-bodyBackgroundColor;
+
+      tr.showGridLines {
+        border: 1px solid $gridDefault-gridLineColor;
+      }
+
+      tr:not(.empty):hover {
+        background-color: $gridDefault-hoverRowColor;
+      }
+
+      td.showGridLines:not(.editCommands):not(:last-of-type) {
+        border-right: 1px solid $gridDefault-gridLineColor;
+      }
+
+      td.editCommands {
+        a {
+          color: $gridDefault-bodyIconColor;
+        }
+
+        a:hover {
+          background-color: $gridDefault-bodyIconHoverColorBackground;
+          color: $gridDefault-bodyIconHoverColor;
+        }
+      }
+    }
+
+    tfoot {
+      background-color: $gridDefault-footerBackgroundColor;
+      color: $gridDefault-footerColor;
+
+      &.showBorder {
+        border-top: 1px solid $gridDefault-borderColor;
+      }
+
+      td {
+        span.footerPager, span.recordCount {
+          a {
+            color: $gridDefault-footerIconColor;
+          }
+
+          a:hover:not(.disabled) {
+            background-color: $gridDefault-footerIconHoverColorBackground;
+            color: $gridDefault-footerIconHoverColor;
+          }
+
+          a.disabled {
+            color: $gridDefault-footerIconDisabledColor;
+            text-shadow: $gridDefault-footerIconDisabledShadow;
+          }
+          a.disabled:hover {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+
+  table.alt {
+    &.showBorder {
+      border-color: $gridAlt-borderColor;
+    }
+
+    thead {
+      background-color: $gridAlt-headerBackgroundColor;
+
+      &.showBorder {
+        border-bottom: 1px solid $gridAlt-borderColor;
+        border-top: 1px solid $gridAlt-borderColor;
+      }
+
+      th {
+        color: $gridAlt-headerColor;
+
+        a {
+          color: $gridAlt-headerColor;
+          i {
+            color: lighten($gridAlt-headerIconColor, 10%);
+          }
+        }
+      }
+    }
+
+    tbody {
+      color: $gridAlt-bodyColor;
+      background-color: $gridAlt-bodyBackgroundColor;
+
+      tr.showGridLines {
+        border: 1px solid $gridAlt-gridLineColor;
+      }
+
+      tr:not(.empty):hover {
+        background-color: $gridAlt-hoverRowColor;
+      }
+
+      td.showGridLines:not(.editCommands):not(:last-of-type) {
+        border-right: 1px solid $gridAlt-gridLineColor;
+      }
+
+      td.editCommands {
+        a {
+          color: $gridAlt-bodyIconColor;
+        }
+
+        a:hover {
+          background-color: $gridAlt-bodyIconHoverColorBackground;
+          color: $gridAlt-bodyIconHoverColor;
+        }
+      }
+    }
+
+    tfoot {
+      background-color: $gridAlt-footerBackgroundColor;
+      color: $gridAlt-footerColor;
+
+      &.showBorder {
+        border-top: 1px solid $gridAlt-borderColor;
+      }
+
+      td {
+        span.footerPager, span.recordCount {
+          a {
+            color: $gridAlt-footerIconColor;
+          }
+
+          a:hover {
+            background-color: $gridAlt-footerIconHoverColorBackground;
+            color: $gridAlt-footerIconHoverColor;
+          }
+
+          a.disabled {
+            color: $gridAlt-footerIconDisabledColor;
+            text-shadow: $gridAlt-footerIconDisabledShadow;
+          }
+          a.disabled:hover {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+
+  table.blue {
+    &.showBorder {
+      border-color: $gridBlue-borderColor;
+    }
+
+    thead {
+      background-color: $gridBlue-headerBackgroundColor;
+
+      &.showBorder {
+        border-bottom: 1px solid $gridBlue-borderColor;
+        border-top: 1px solid $gridBlue-borderColor;
+      }
+
+      th {
+        color: $gridBlue-headerColor;
+
+        a {
+          color: $gridBlue-headerColor;
+          i {
+            color: lighten($gridBlue-headerIconColor, 10%);
+          }
+        }
+      }
+    }
+
+    tbody {
+      color: $gridBlue-bodyColor;
+      background-color: $gridBlue-bodyBackgroundColor;
+
+      tr.showGridLines {
+        border: 1px solid $gridBlue-gridLineColor;
+      }
+
+      td.showGridLines:not(.editCommands):not(:last-of-type) {
+        border-right: 1px solid $gridBlue-gridLineColor;
+      }
+
+      td.editCommands {
+        a {
+          color: $gridBlue-bodyIconColor;
+        }
+
+        a:hover {
+          background-color: $gridBlue-bodyIconHoverColorBackground;
+          color: $gridBlue-bodyIconHoverColor;
+        }
+      }
+    }
+
+    tfoot {
+      background-color: $gridBlue-footerBackgroundColor;
+      color: $gridBlue-footerColor;
+
+      &.showBorder {
+        border-top: 1px solid $gridBlue-borderColor;
+      }
+
+      td {
+        span.footerPager, span.recordCount {
+          a {
+            color: $gridBlue-footerIconColor;
+          }
+
+          a:hover {
+            background-color: $gridBlue-footerIconHoverColorBackground;
+            color: $gridBlue-footerIconHoverColor;
+          }
+
+          a.disabled {
+            color: $gridBlue-footerIconDisabledColor;
+            text-shadow: $gridBlue-footerIconDisabledShadow;
+          }
+          a.disabled:hover {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  // }
+}

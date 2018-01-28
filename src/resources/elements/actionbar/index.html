@@ -1,0 +1,28 @@
+<template>
+  <section class="actionBarContainer">
+    <div class="left">
+      <a repeat.for="button of actions" title.bind="button.title" href="javascript:void(0);" 
+        click.trigger="executeAction(button.name, button.href)">
+        <i class="fa fa-${button.icon}" aria-hidden="true"></i>
+      </a>
+      <a repeat.for="button of buttons" title.bind="button.title"
+        click.trigger="executeAction(button.action, button.href)" href="javascript:void(0);">
+        <i class="fa fa-${button.icon}" aria-hidden="true"></i>
+      </a>
+    </div>
+    <div class="right">
+      <a repeat.for="button of rightButtons" if.bind="button.icon !== 'search'" title.bind="button.title" click.trigger="executeAction(button.action, button.href)" href="#"><i class="material-icons small">${button.icon}</i></a>
+      <div show.bind="searchVisible" style="${hasVerticalScroll ? 'right: 2px;' : ''}">
+        <div class="blurBackground">
+        </div>
+        <form role="form" submit.delegate="executeSearch()">
+          <input id="search" type="text" value.bind="search" autocomplete="off" onkeypress.delegate="executeSearch()" type="search" autofocus required placeholder="Search..." />
+          <a title="Search" click.trigger="showSearch(false)" href="#"><i class="material-icons small">clear</i></a>
+          <!--<label for="search" click.trigger="showSearch(false)" style="cursor: hand"><i class="material-icons small">clear</i></label>-->
+        </form>
+      </div>
+      <a if.bind="searchGrid === 'true' && !searchVisible" ref="searchButton" title="Search" click.trigger="showSearch(true)" href="#"><i class="material-icons small">search</i></a>
+    </div>
+  </section>
+  <slot></slot>
+</template>

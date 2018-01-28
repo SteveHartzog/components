@@ -1,0 +1,13 @@
+<template>
+  <action-bar $parent.bind="$parent" buttons.bind="buttons" search-grid="true">
+    <action title="Add" name="openAddDialog" icon="plus"></action>
+  </action-bar>
+  <article>
+    <grid ref="grid" rows.bind="items" theme="default" default-sort="character" allow-edit="true"><!-- edit-command="editPermission"> -->
+      <column title="Character Name" data-field="character" width="250px"></column>
+      <column title="Last Episode" data-field="lastEpisode" data-type="string"></column>
+      <column title="Actor Name" data-field="actor" data-type="string" width="250px"></column>
+      <column title="Salary" data-field="salary" data-type="currency" align="right"></column>
+    </grid>
+  </article>
+</template>
